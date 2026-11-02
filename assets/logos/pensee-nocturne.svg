@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Pensée Nocturne : Croissant de lune & astres géométriques -->
+  <path d="M 36 12 C 46 16 50 28 44 38 C 38 48 26 50 18 44 C 28 48 40 42 42 30 C 44 20 38 14 36 12 Z" fill="#111111" />
+  <!-- Étoile / étincelle de pensée -->
+  <path d="M 22 18 L 24 22 L 28 24 L 24 26 L 22 30 L 20 26 L 16 24 L 20 22 Z" fill="#111111" stroke="none" />
+  <circle cx="28" cy="14" r="1.5" fill="#111111" stroke="none" />
+</svg>
