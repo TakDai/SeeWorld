@@ -21,7 +21,7 @@ jobs:
       - name: Préparer les fichiers de distribution
         run: |
           mkdir -p dist
-          cp -r index.html styles.css app.js fonts CNAME README.md dist/
+          cp -r index.html styles.css app.js fonts CNAME README.md .htaccess dist/
           printf 'Site SEEWORLD prêt à servir sur seeworld.fr, généré depuis la branche %s (%s).\n' \
             "${{ github.ref_name }}" "$(git rev-parse --short HEAD)" > dist/LISEZMOI.txt
 
