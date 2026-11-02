@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Superviseur : Bouclier de supervision SSH -->
-  <path d="M 32 6 L 52 14 V 28 C 52 44 32 56 32 56 C 32 56 12 44 12 28 V 14 Z" />
-  <!-- Symbole de commande / terminal intérieur -->
-  <path d="M 24 24 L 30 30 L 24 36" />
-  <line x1="33" y1="36" x2="40" y2="36" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#111111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Superviseur : Monitoring de serveurs & supervision SSH -->
+  <rect x="11" y="11" width="42" height="34" rx="6" />
+  <line x1="11" y1="20" x2="53" y2="20" />
+  <!-- Témoins de statut serveur -->
+  <circle cx="17" cy="15.5" r="1.5" fill="#111111" stroke="none" />
+  <circle cx="22" cy="15.5" r="1.5" fill="#111111" stroke="none" />
+  <circle cx="27" cy="15.5" r="1.5" fill="#111111" stroke="none" />
+  <!-- Signal heartbeat / activité réseau -->
+  <path d="M 17 32 H 24 L 28 24 L 33 40 L 37 28 L 40 32 H 47" stroke-width="2.2" />
+  <!-- Pied serveur / terminal -->
+  <path d="M 25 45 L 22 52 H 42 L 39 45" />
 </svg>
