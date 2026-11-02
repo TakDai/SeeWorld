@@ -1,5 +1,5 @@
 /**
- * SEEWORLD — Regarder le monde
+ * SEEWORLD
  * Page d'accueil minimaliste inspirée de Multi-Motors
  * Vitrine de projets par logos cliquables
  */
