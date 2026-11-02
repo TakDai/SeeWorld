@@ -21,8 +21,12 @@ jobs:
       - name: Préparer les fichiers de distribution
         run: |
           mkdir -p dist
-          cp -r index.html styles.css fonts assets favicon.svg CNAME README.md .htaccess dist/
-          printf 'Site SEEWORLD prêt à servir sur seeworld.fr, généré depuis la branche %s (%s).\n' \
+          # Copie de l'intégralité des fichiers web et ressources
+          cp -r index.html charte-graphique.html mentions-legales.html robots.txt sitemap.xml styles.css favicon.svg assets fonts dist/ 2>/dev/null || true
+          [ -f .htaccess ] && cp .htaccess dist/ || true
+          [ -f CNAME ] && cp CNAME dist/ || true
+          [ -f README.md ] && cp README.md dist/ || true
+          printf 'Site SEEWORLD prêt à servir sur seeworld.fr, généré automatiquement depuis la branche %s (%s).\n' \
             "${{ github.ref_name }}" "$(git rev-parse --short HEAD)" > dist/LISEZMOI.txt
 
       - name: Pousser sur la branche ovh
@@ -42,6 +46,18 @@ jobs:
           if git diff --cached --quiet; then echo "Rien de nouveau à publier."; exit 0; fi
           git commit -q -m "Mise à jour seeworld.fr ($(git -C .. rev-parse --short HEAD))"
           git push -q origin ovh
+
+      - name: Déclencher le déploiement automatique OVH (Webhook)
+        env:
+          OVH_WEBHOOK_URL: ${{ secrets.OVH_WEBHOOK_URL || vars.OVH_WEBHOOK_URL }}
+        run: |
+          if [ -n "$OVH_WEBHOOK_URL" ]; then
+            echo "Appel du webhook OVH pour déploiement automatique..."
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$OVH_WEBHOOK_URL")
+            echo "Réponse webhook OVH : HTTP $HTTP_CODE"
+          else
+            echo "Pas d'URL de webhook configurée dans les secrets GitHub."
+          fi
 
       - name: Envoyer sur l'hébergement OVH (FTP direct si secrets configurés)
         env:
