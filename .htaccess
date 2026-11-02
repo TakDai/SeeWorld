@@ -3,15 +3,28 @@
 # Redirection vers adresse unique canonique : https://seeworld.fr (redirige http:// et www.)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # HTTPS & domaine principal sans www
   RewriteCond %{HTTP_HOST} ^www\.seeworld\.fr$ [NC]
   RewriteRule ^(.*)$ https://seeworld.fr/$1 [R=301,L]
   RewriteCond %{HTTP_HOST} ^seeworld\.fr$ [NC]
   RewriteCond %{SERVER_PORT} ^80$
   RewriteRule ^(.*)$ https://seeworld.fr/$1 [R=301,L]
+
+  # Raccourcis pour les pages charte et mentions
+  RewriteRule ^charte/?$ /charte-graphique.html [L]
+  RewriteRule ^charte-graphique/?$ /charte-graphique.html [L]
+  RewriteRule ^mentions/?$ /mentions-legales.html [L]
+  RewriteRule ^mentions-legales/?$ /mentions-legales.html [L]
+
+  # Résolution des fichiers sans extension .html
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^/]+)/?$ /$1.html [L]
 </IfModule>
 
 DirectoryIndex index.html
-Options -Indexes
+Options -Indexes +MultiViews
 AddDefaultCharset utf-8
 AddType font/woff2 .woff2
 AddType image/svg+xml .svg
