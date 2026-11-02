@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="fr" data-season="seeworld">
+<head>
+  <meta charset="utf-8">
+  <title>SEEWORLD — Regarder le monde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SEEWORLD rassemble les créations logicielles, matérielles, FPV et communautaires conçues et développées par Tom Bigot.">
+  <link rel="canonical" href="https://seeworld.fr">
+  
+  <!-- Charte Les Tourangeaux / SEEWORLD -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ================= BANDEAU SUPÉRIEUR ================= -->
+  <aside style="border-bottom: 2px dashed var(--dash); background: var(--paper-soft); font-size: 11px; padding: 6px 0;">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="pill live" style="height: 18px; padding: 0 8px; font-size: 9px;">ACTIF</span>
+        <span class="label" style="margin: 0; color: var(--ink);">Écosystème unifié &bull; 10 projets en exploitation &amp; R&amp;D</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <span class="label" style="margin: 0; font-family: var(--font-mono); color: var(--ink-muted);" id="live-clock">--:--:-- CET</span>
+        <a href="https://tom-bigot.fr" target="_blank" rel="noopener" class="label" style="margin: 0; color: var(--ink); text-decoration: underline;">
+          tom-bigot.fr ↗
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= EN-TÊTE OFFICIEL ================= -->
+  <header class="top-header">
+    <div class="wrap top-inner">
+      
+      <!-- Marque & Devise -->
+      <a href="#" class="brand-link">
+        <span class="chip" style="min-height: 32px; font-size: 14px; letter-spacing: 0.18em;">SW</span>
+        <div>
+          <span class="brand-title">SEEWORLD</span>
+          <span class="devise" style="display: block; font-size: 11px; line-height: 1;">Regarder le monde</span>
+        </div>
+      </a>
+
+      <!-- Menu de navigation -->
+      <nav class="nav-menu">
+        <a href="#projets" class="nav-link active">01. PROJETS</a>
+        <a href="#architecture" class="nav-link">02. ARCHITECTURE</a>
+        <a href="#charte" class="nav-link">03. CHARTE</a>
+        <a href="#contact" class="nav-link">04. CONTACT</a>
+      </nav>
+
+      <!-- Sélecteur de touche de couleur / saison & action -->
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div class="season-picker" title="Choisir la couleur d'accent (Charte Seeworld / Saisons)">
+          <button class="season-btn active" data-season="seeworld" style="background:#1f75d1" aria-label="Bleu Seeworld"></button>
+          <button class="season-btn" data-season="printemps" style="background:#93c47d" aria-label="Printemps"></button>
+          <button class="season-btn" data-season="ete" style="background:#7cbbe0" aria-label="Été"></button>
+          <button class="season-btn" data-season="automne" style="background:#e09a6c" aria-label="Automne"></button>
+          <button class="season-btn" data-season="hiver" style="background:#8fb0d9" aria-label="Hiver"></button>
+        </div>
+
+        <a href="#projets" class="btn sm">
+          <span>CATALOGUE</span>
+          <i data-lucide="arrow-down" style="width: 14px; height: 14px;"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= SECTION HERO ================= -->
+  <main>
+    <section style="padding: 70px 0 50px; background: var(--paper);">
+      <div class="wrap">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; align-items: center;">
+          
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <span class="label">Groupe de développement indépendant</span>
+              <h1>CONCEVOIR, BÂTIR,<br><span class="devise" style="font-size: inherit; color: var(--ink);">REGARDER LE MONDE.</span></h1>
+            </div>
+
+            <p style="font-size: 17px; max-width: 580px;">
+              SEEWORLD réunit l'ensemble des créations développées par <strong>Tom Bigot</strong> : supervision d'infrastructures chiffrée, applications pour implants NFC/RFID, catalogue mondial de motorisations FPV, plateformes temps réel et collectifs citoyens.
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 10px;">
+              <a href="#projets" class="btn">
+                <span>DÉCOUVRIR LES 10 PROJETS</span>
+                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+              <a href="#charte" class="btn ghost">
+                <span>VOIR LA CHARTE GRAPHIQUE</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bloc chiffres et règles signatures -->
+          <div class="dashed-box" style="padding: 32px; display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px dashed var(--dash); padding-bottom: 14px;">
+              <span class="label" style="margin: 0;">RÉPERTOIRE TECHNIQUE</span>
+              <span class="pill live">SOUVERAIN</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="pv">
+                <b>Projets actifs</b>
+                <em id="hero-projects-count">10</em>
+              </div>
+              <div class="pv">
+                <b>Chiffrement cœur</b>
+                <em>AES-256-GCM</em>
+              </div>
+              <div class="pv">
+                <b>Cybernétique &amp; NFC</b>
+                <em>Kotlin Compose</em>
+              </div>
+              <div class="pv">
+                <b>Moteurs FPV analysés</b>
+                <em>Quotidien</em>
+              </div>
+            </div>
+
+            <div style="border-top: 2px dashed var(--dash); padding-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+              <span class="label" style="margin: 0;">Direction technique</span>
+              <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">Tom Bigot</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="wrap"><hr class="sep"></div>
+
+    <!-- ================= CATALOGUE DES PROJETS ================= -->
+    <section id="projets" style="padding: 20px 0 60px;">
+      <div class="wrap" style="display: flex; flex-direction: column; gap: 32px;">
+        
+        <!-- En-tête de section -->
+        <div style="display: flex; flex-direction: column; md-flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 16px;">
+          <div>
+            <span class="label">Répertoire complet</span>
+            <h2>LES PROJETS SEEWORLD</h2>
+            <p style="margin-top: 6px; max-width: 650px;">
+              Chaque projet suit les quatre règles : peu d'éléments, noir sur blanc, le pointillé comme signature, et une touche de couleur pour l'action.
+            </p>
+          </div>
+
+          <!-- Switcher Grille / Liste -->
+          <div style="display: flex; gap: 8px; align-self: flex-start;">
+            <button id="view-grid-btn" class="btn sm" style="background: var(--ink); color: var(--paper);" title="Affichage en cartes">
+              <i data-lucide="grid" style="width: 14px; height: 14px;"></i>
+              <span>GRILLE</span>
+            </button>
+            <button id="view-list-btn" class="btn ghost sm" title="Affichage en liste compacte">
+              <i data-lucide="list" style="width: 14px; height: 14px;"></i>
+              <span>LISTE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Recherche & Filtres -->
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <!-- Barre de recherche -->
+          <div style="position: relative;">
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="Rechercher un projet, une technologie (Kotlin, C#, Python, FPV, Discord, NFC, LiveKit)..."
+            >
+          </div>
+
+          <!-- Onglets de filtres -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;" id="filter-tabs">
+            <button class="filter-tab active" data-category="all">TOUS (10)</button>
+            <button class="filter-tab" data-category="system">SYSTÈMES &amp; RÉSEAU</button>
+            <button class="filter-tab" data-category="mobile-hardware">CYBERNÉTIQUE &amp; MOBILE</button>
+            <button class="filter-tab" data-category="fpv-robotics">DRONES &amp; FPV</button>
+            <button class="filter-tab" data-category="community-web">COMMUNAUTÉS &amp; WEB</button>
+            <button class="filter-tab" data-category="creation-3d">3D &amp; MÉDIAS</button>
+          </div>
+        </div>
+
+        <!-- Conteneur des projets (Grille ou Liste) -->
+        <div id="projects-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;">
+          <!-- Injecté dynamiquement par app.js -->
+        </div>
+
+        <!-- Message aucun résultat -->
+        <div id="no-results" class="dashed-box" style="display: none; padding: 48px; text-align: center;">
+          <span class="label">Recherche</span>
+          <h3>AUCUN PROJET CORRESPONDANT</h3>
+          <p style="margin-top: 8px;">Modifiez votre recherche ou cliquez sur « TOUS » pour réinitialiser le filtre.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="wrap"><hr class="sep"></div>
+
+    <!-- ================= ARCHITECTURE & INTERCONNEXION ================= -->
+    <section id="architecture" style="padding: 20px 0 60px;">
+      <div class="wrap" style="display: flex; flex-direction: column; gap: 32px;">
+        <div>
+          <span class="label">Écosystème</span>
+          <h2>L'INTERCONNEXION DU PARC</h2>
+          <p style="margin-top: 6px; max-width: 680px;">
+            Les composants ne vivent pas en silos. Ils forment un système cohérent, supervisé à distance sans intermédiaire et garantissant une autonomie totale.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          
+          <div class="dashed-box" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+            <span class="kicker">01</span>
+            <h3>SUPERVISION EN TUNNEL SSH</h3>
+            <p>
+              L'application <strong>Superviseur</strong> (C# .NET 8 / Avalonia) pilote à distance les instances sans aucun agent tiers exposé publiquement. Le coffre de clés locales est chiffré en AES-256-GCM dérivé par Argon2id.
+            </p>
+            <div style="margin-top: auto; padding-top: 14px; border-top: 2px dashed var(--dash); font-size: 12px; color: var(--ink-muted);">
+              Cibles : OpenBots, Komeon, Clusters Linux
+            </div>
+          </div>
+
+          <div class="dashed-box" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+            <span class="kicker">02</span>
+            <h3>COMMUNICATION &amp; WEBRTC</h3>
+            <p>
+              <strong>Komeon</strong> et <strong>OpenBots</strong> orchestrent les échanges instantanés avec une pile WebRTC LiveKit sous les 100ms de latence et des processus isolés par serveur.
+            </p>
+            <div style="margin-top: auto; padding-top: 14px; border-top: 2px dashed var(--dash); font-size: 12px; color: var(--ink-muted);">
+              Technologies : FastAPI, LiveKit, WebSockets, Python
+            </div>
+          </div>
+
+          <div class="dashed-box" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+            <span class="kicker">03</span>
+            <h3>MATÉRIEL &amp; CYBERNÉTIQUE</h3>
+            <p>
+              <strong>Inskin</strong> dialogue avec les puces sous-cutanées, émule les tags RFID et commande le déverrouillage de PC, tandis que <strong>Multi-Motors</strong> analyse chaque composant de propulsion des drones FPV.
+            </p>
+            <div style="margin-top: auto; padding-top: 14px; border-top: 2px dashed var(--dash); font-size: 12px; color: var(--ink-muted);">
+              Domaines : Jetpack Compose, NFC HCE, Bancs de poussée
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><hr class="sep"></div>
+
+    <!-- ================= CHARTE GRAPHIQUE SEEWORLD ================= -->
+    <section id="charte" style="padding: 20px 0 60px;">
+      <div class="wrap" style="display: flex; flex-direction: column; gap: 32px;">
+        
+        <div>
+          <span class="label">Identité visuelle</span>
+          <h2>LA CHARTE SEEWORLD</h2>
+          <p class="devise" style="margin-top: 4px; font-size: 15px;">La même charte partagée par Les Tourangeaux et l'ensemble du groupe.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+          
+          <div class="dashed-box" style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <span class="kicker">01</span>
+            <h3>PEU D'ÉLÉMENTS</h3>
+            <p>Une page montre ce qu'il faut regarder, rien d'autre. Avant d'ajouter un élément, on se demande si du vide ne ferait pas mieux.</p>
+          </div>
+
+          <div class="dashed-box" style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <span class="kicker">02</span>
+            <h3>NOIR SUR BLANC</h3>
+            <p>Fond blanc, texte noir et ses nuances. Pas de dégradé, pas d'image de fond superflue, pas d'emoji.</p>
+          </div>
+
+          <div class="dashed-box" style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <span class="kicker">03</span>
+            <h3>POINTILLÉ SIGNATURE</h3>
+            <p>Les contours sont des pointillés de 2 px. Ils deviennent pleins et noirs quand l'élément est actif ou survolé.</p>
+          </div>
+
+          <div class="dashed-box" style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+            <span class="kicker">04</span>
+            <h3>TOUCHE DE COULEUR</h3>
+            <p>Le fond reste blanc. Une seule touche de couleur pour l'action principale, qui peut adopter les couleurs de saison.</p>
+          </div>
+
+        </div>
+
+        <!-- Nuancier démonstration -->
+        <div class="dashed-box" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+          <span class="label">Nuancier officiel</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px dashed var(--dash); border-radius: 4px;">
+              <span style="width: 14px; height: 14px; background: #ffffff; border: 1px solid #000; border-radius: 2px;"></span>
+              <span class="label" style="margin: 0; color: var(--ink);">#FFFFFF Papier</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px dashed var(--dash); border-radius: 4px;">
+              <span style="width: 14px; height: 14px; background: #000000; border-radius: 2px;"></span>
+              <span class="label" style="margin: 0; color: var(--ink);">#000000 Encre</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px dashed var(--dash); border-radius: 4px;">
+              <span style="width: 14px; height: 14px; background: #575757; border-radius: 2px;"></span>
+              <span class="label" style="margin: 0; color: var(--ink);">#575757 Pointillés 2px</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px dashed var(--dash); border-radius: 4px;">
+              <span style="width: 14px; height: 14px; background: #1f75d1; border-radius: 2px;"></span>
+              <span class="label" style="margin: 0; color: var(--ink);">#1F75D1 Bleu Seeworld</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px dashed var(--dash); border-radius: 4px;">
+              <span style="width: 14px; height: 14px; background: #fed169; border-radius: 2px;"></span>
+              <span class="label" style="margin: 0; color: var(--ink);">#FED169 Or (Lys)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="wrap"><hr class="sep"></div>
+
+    <!-- ================= CONTACT & SITES ================= -->
+    <section id="contact" style="padding: 20px 0 80px;">
+      <div class="wrap narrow" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <span class="label">Échange &amp; Dépôts</span>
+        <h2>COLLABORER SUR SEEWORLD</h2>
+        <p>
+          Pour échanger autour des architectures réseau, contribuer aux outils FPV, ou obtenir les spécifications des modules de supervision.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 10px;">
+          <a href="https://tom-bigot.fr" target="_blank" rel="noopener" class="btn">
+            <span>TOM-BIGOT.FR ↗</span>
+          </a>
+          <a href="https://lestourangeaux.fr" target="_blank" rel="noopener" class="btn ghost">
+            <span>LESTOURANGEAUX.FR ↗</span>
+          </a>
+          <a href="https://multi-motors.fr" target="_blank" rel="noopener" class="btn ghost">
+            <span>MULTI-MOTORS.FR ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= PIED DE PAGE ================= -->
+  <footer style="border-top: 2px dashed var(--dash); background: var(--paper-soft); padding: 40px 0 60px;">
+    <div class="wrap" style="display: flex; flex-direction: column; md-flex-direction: row; justify-content: space-between; align-items: center; gap: 20px;">
+      
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="chip">SEEWORLD</span>
+        <div>
+          <span style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">Regarder le monde</span>
+          <p style="font-size: 12px; color: var(--ink-muted);">Tous droits réservés &copy; 2026 Tom Bigot.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 20px; font-size: 12px;">
+        <a href="#projets" class="label" style="margin: 0; color: var(--ink);">PROJETS</a>
+        <a href="#architecture" class="label" style="margin: 0; color: var(--ink);">ARCHITECTURE</a>
+        <a href="#charte" class="label" style="margin: 0; color: var(--ink);">CHARTE</a>
+        <a href="https://seeworld.fr" class="label" style="margin: 0; color: var(--ink);">SEEWORLD.FR</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= MODALE D'INSPECTION ================= -->
+  <div id="project-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog">
+      
+      <div class="modal-header">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="chip" id="modal-category">DOMAINE</span>
+            <span class="pill live" id="modal-status">STATUT</span>
+          </div>
+          <h2 id="modal-title" style="font-size: 24px; margin-top: 4px;">NOM DU PROJET</h2>
+        </div>
+        <button id="modal-close-btn" class="btn ghost sm" style="min-height: 32px; padding: 0 10px;" aria-label="Fermer">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <span class="label">Présentation</span>
+          <p id="modal-desc" style="font-size: 16px; line-height: 1.6;"></p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="label">Spécifications techniques</span>
+          <div id="modal-specs" class="specs-grid"></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="label">Technologies &amp; Modules</span>
+          <div id="modal-tags" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="label" style="margin: 0;" id="modal-ref">Groupe SEEWORLD</span>
+        <div id="modal-actions" style="display: flex; gap: 10px;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

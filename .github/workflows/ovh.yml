@@ -1,0 +1,62 @@
+name: Mise en ligne sur OVH (seeworld.fr)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ovh
+  cancel-in-progress: true
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Préparer les fichiers de distribution
+        run: |
+          mkdir -p dist
+          cp -r index.html styles.css app.js fonts CNAME README.md dist/
+          printf 'Site SEEWORLD prêt à servir sur seeworld.fr, généré depuis la branche %s (%s).\n' \
+            "${{ github.ref_name }}" "$(git rev-parse --short HEAD)" > dist/LISEZMOI.txt
+
+      - name: Pousser sur la branche ovh
+        run: |
+          REPO="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$REPO" ovh >/dev/null; then
+            git clone -q --depth 1 --branch ovh "$REPO" out
+          else
+            mkdir out && git -C out init -q -b ovh && git -C out remote add origin "$REPO"
+          fi
+          find out -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r dist/. out/
+          cd out
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Rien de nouveau à publier."; exit 0; fi
+          git commit -q -m "Mise à jour seeworld.fr ($(git -C .. rev-parse --short HEAD))"
+          git push -q origin ovh
+
+      - name: Envoyer sur l'hébergement OVH (FTP direct si secrets configurés)
+        env:
+          OVH_FTP_HOST: ${{ secrets.OVH_FTP_HOST }}
+          OVH_FTP_USER: ${{ secrets.OVH_FTP_USER }}
+          LFTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
+          OVH_REMOTE_DIR: ${{ vars.OVH_REMOTE_DIR || 'www' }}
+        run: |
+          if [ -z "$OVH_FTP_HOST" ] || [ -z "$OVH_FTP_USER" ] || [ -z "$LFTP_PASSWORD" ]; then
+            echo "Pas d'identifiants FTP secrets : publication par branche ovh (Associer Git OVH)."
+            exit 0
+          fi
+          sudo apt-get install -y -qq lftp >/dev/null
+          lftp --env-password -u "$OVH_FTP_USER" "ftp://$OVH_FTP_HOST" -e "
+            set ftp:ssl-allow yes;
+            set net:max-retries 3;
+            mirror --reverse --verbose --parallel=4 --exclude-glob .git* dist/ $OVH_REMOTE_DIR/;
+            bye"
