@@ -1,8 +1,8 @@
 /* ==========================================================================
    SEEWORLD — Regarder le monde
-   Minimalisme radical inspiré de Multi-Motors
+   Minimalisme direct inspiré de multi-motors.fr
    Noir sur blanc, typographie Glacial Indifference, pointillés 2 px signatures
-   et vitrine épurée des projets par leurs logos cliquables.
+   et vitrine directe des projets par leurs logos cliquables.
    ========================================================================== */
 
 @font-face {
@@ -34,21 +34,10 @@
 
 :root {
   --paper: #ffffff;
-  --paper-soft: #faf9f6;
-  --ink: #111111;
-  --ink-soft: #444440;
-  --ink-muted: #73716b;
-  --dash: #7d7a74;
-  --chip: #1e1f21;
-  --on-chip: #f7f6f2;
-
-  /* Teinte sobre ardoise */
-  --accent: #263b4d;
-  --accent-text: #ffffff;
-
+  --ink: #000000;
+  --dash: rgba(0, 0, 0, 0.45);
   --font: "Glacial Indifference", "Century Gothic", "Futura", "Trebuchet MS", sans-serif;
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  color-scheme: light;
 }
 
 *, *::before, *::after {
@@ -62,12 +51,10 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--paper);
+  overflow-x: clip;
+  background: var(--paper);
   color: var(--ink);
-  font-family: var(--font);
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.5;
+  font: 700 14px/1.3 var(--font);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -75,77 +62,72 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: var(--accent);
-  color: #ffffff;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* ---------- EN-TÊTE MINIMALISTE (Style Multi-Motors) ---------- */
+/* ---------- EN-TÊTE (Style Multi-Motors) ---------- */
 .topnav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  padding: 0 24px;
+  height: 64px;
+  padding: 0 clamp(16px, 3vw, 36px);
   border-bottom: 2px dashed var(--dash);
   background: var(--paper);
 }
 
-.brand {
-  display: inline-flex;
+.site-logo {
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
+}
+
+.site-logo img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.site-name {
+  font: 700 17px/1 var(--font);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
 }
 
-.brand-icon {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
 .nav-pill {
   display: inline-flex;
   align-items: center;
-  height: 28px;
-  padding: 0 12px;
+  height: 30px;
+  padding: 0 14px;
   border: 2px dashed var(--dash);
-  border-radius: 14px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  border-radius: 15px;
+  font: 700 11px var(--font);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  transition: all 0.2s ease;
+  color: var(--ink);
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
 .nav-pill:hover {
   border-style: solid;
   border-color: var(--ink);
-  color: var(--ink);
-  background: var(--paper-soft);
+  background: #fafafa;
 }
 
-/* ---------- CŒUR DE PAGE (Screen Multi-Motors) ---------- */
+/* ---------- SECTION CENTRALE ---------- */
 .screen {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px 20px 48px;
-  max-width: 1040px;
+  padding: clamp(24px, 5vh, 60px) 20px;
   width: 100%;
+  max-width: 1060px;
   margin: 0 auto;
 }
 
@@ -153,17 +135,14 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: clamp(32px, 6vh, 64px);
 }
 
 .big-title {
   margin: 0;
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: clamp(38px, min(6.5vw, 9vh), 76px);
-  line-height: 1.05;
+  font: 700 clamp(38px, min(6.5vw, 9vh), 72px)/1.08 var(--font);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
@@ -171,70 +150,29 @@ a {
 
 .devise {
   margin: 0;
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(13px, 2vw, 16px);
+  font: italic 400 clamp(13px, 2vw, 16px) var(--font);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: rgba(0, 0, 0, 0.55);
 }
 
-/* Champ de recherche centré épuré */
-.search-box {
-  width: min(420px, 92%);
-  margin-top: 20px;
-  position: relative;
-}
-
-.search-input {
+/* ---------- VITRINE DES LOGOS CLIQUABLES ---------- */
+.showcase {
   width: 100%;
-  height: 46px;
-  padding: 0 18px;
-  text-align: center;
-  border: 2px dashed var(--dash);
-  border-radius: 8px;
-  background: var(--paper);
-  font-family: var(--font);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  transition: all 0.2s ease;
-}
-
-.search-input::placeholder {
-  color: var(--ink-muted);
-  opacity: 0.8;
-}
-
-.search-input:focus {
-  outline: none;
-  border-style: solid;
-  border-color: var(--ink);
-  background: #ffffff;
-}
-
-/* ---------- GRILLE DES LOGOS DE PROJET ---------- */
-.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 20px;
-  width: 100%;
-  margin-top: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(14px, 2vw, 24px);
 }
 
-/* Tuile logo cliquable */
-.project-tile {
+.logo-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 16px 20px;
-  min-height: 160px;
+  padding: 24px 14px 18px;
+  min-height: 154px;
   border: 2px dashed var(--dash);
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   background: var(--paper);
   text-decoration: none;
   cursor: pointer;
@@ -242,29 +180,27 @@ a {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.2s ease,
               border-style 0.2s ease,
-              box-shadow 0.2s ease,
-              background-color 0.2s ease;
+              box-shadow 0.2s ease;
 }
 
-.project-tile:hover {
+.logo-card:hover {
   transform: translateY(-4px);
   border-style: solid;
   border-color: var(--ink);
-  background-color: var(--paper-soft);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.tile-icon-box {
-  width: 68px;
-  height: 68px;
+.logo-img {
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 14px;
 }
 
-.tile-icon-box img,
-.tile-icon-box svg {
+.logo-img img,
+.logo-img svg {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -272,176 +208,82 @@ a {
   transition: transform 0.2s ease;
 }
 
-.project-tile:hover .tile-icon-box img,
-.project-tile:hover .tile-icon-box svg {
+.logo-card:hover .logo-img img,
+.logo-card:hover .logo-img svg {
   transform: scale(1.08);
 }
 
-.tile-title {
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.2;
+.logo-name {
+  margin: 0;
+  font: 700 12px/1.2 var(--font);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
   text-align: center;
-  margin: 0;
 }
 
-.tile-tag {
-  font-family: var(--font);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-top: 4px;
-  text-align: center;
-}
-
-/* Badge discret pour lien externe direct */
-.tile-ext {
+.logo-ext {
   position: absolute;
-  top: 10px;
+  top: 8px;
   right: 10px;
   font-size: 11px;
-  color: var(--ink-muted);
-  opacity: 0.4;
-  transition: opacity 0.2s, transform 0.2s;
+  color: rgba(0, 0, 0, 0.35);
+  transition: color 0.2s, transform 0.2s;
 }
 
-.project-tile:hover .tile-ext {
-  opacity: 1;
-  transform: translate(2px, -2px);
+.logo-card:hover .logo-ext {
   color: var(--ink);
+  transform: translate(1px, -1px);
 }
 
-/* Aucun résultat recherche */
-.no-results {
-  display: none;
-  text-align: center;
-  padding: 40px;
-  border: 2px dashed var(--dash);
-  border-radius: var(--radius-md);
-  width: 100%;
-  color: var(--ink-muted);
-  font-style: italic;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* ---------- TIROIR / MODALE ULTRA SOBRE ---------- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal-card {
-  width: 100%;
-  max-width: 520px;
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  border-radius: var(--radius-md);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: var(--ink-muted);
-  transition: color 0.15s;
-}
-
-.modal-close:hover {
-  color: var(--ink);
-}
-
-.modal-head-logo {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-head-logo img,
-.modal-head-logo svg {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 0 20px;
-  border: 2px solid var(--ink);
-  border-radius: var(--radius-sm);
-  background: var(--ink);
-  color: #ffffff;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-}
-
-.btn:hover {
-  background: #2a2a2a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* ---------- PIED DE PAGE ULTRA ÉPURÉ ---------- */
-.footer {
+/* ---------- PIED DE PAGE ---------- */
+.foot {
   border-top: 2px dashed var(--dash);
-  padding: 20px 24px;
+  padding: 18px clamp(16px, 3vw, 36px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 11px;
+  font: 700 11px var(--font);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: rgba(0, 0, 0, 0.55);
 }
 
-.footer a:hover {
+.foot a {
   color: var(--ink);
 }
 
-@media (max-width: 600px) {
-  .projects-grid {
+.foot a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .showcase {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .showcase {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
-  .topnav {
-    padding: 0 16px;
+  .logo-card {
+    min-height: 136px;
+    padding: 18px 10px 14px;
   }
-  .footer {
+  .logo-img {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 10px;
+  }
+  .logo-name {
+    font-size: 11px;
+  }
+  .foot {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     text-align: center;
   }
 }

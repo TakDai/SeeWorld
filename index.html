@@ -4,87 +4,135 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SEEWORLD — Regarder le monde</title>
-  <meta name="description" content="SEEWORLD : l'écosystème et les projets logiciels, matériels, FPV et communautaires de Tom Bigot.">
+  <meta name="description" content="SEEWORLD : l'écosystème et les créations de Tom Bigot.">
   <link rel="canonical" href="https://seeworld.fr">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ================= BARRE DU HAUT ================= -->
-  <nav class="topnav" aria-label="Navigation principale">
-    <a href="#" class="brand" aria-label="SEEWORLD — Accueil">
-      <img src="assets/logo-seeworld.svg" alt="Logo" class="brand-icon">
-      <span>SEEWORLD</span>
+  <!-- ================= EN-TÊTE ================= -->
+  <nav class="topnav" aria-label="Navigation">
+    <a class="site-logo" href="#" aria-label="SEEWORLD — Accueil">
+      <img src="assets/logo-seeworld.svg" alt="SEEWORLD" width="32" height="32">
+      <span class="site-name">SEEWORLD</span>
     </a>
-    <a href="https://tom-bigot.fr" target="_blank" rel="noopener" class="nav-pill">
+    <a class="nav-pill" href="https://tom-bigot.fr" target="_blank" rel="noopener">
       tom-bigot.fr ↗
     </a>
   </nav>
 
-  <!-- ================= CONTENU PRINCIPAL ================= -->
+  <!-- ================= ACCUEIL ================= -->
   <main class="screen">
     
     <header class="home-head">
       <h1 class="big-title">SEEWORLD</h1>
       <p class="devise">Regarder le monde</p>
-      
-      <div class="search-box">
-        <input 
-          id="search-input" 
-          class="search-input" 
-          type="search" 
-          placeholder="Rechercher un projet..." 
-          autocomplete="off"
-        >
-      </div>
     </header>
 
-    <!-- Grille des logos cliquables -->
-    <section class="projects-grid" id="projects-grid" aria-label="Catalogue des projets">
-      <!-- Injecté dynamiquement par app.js -->
-    </section>
+    <!-- Vitrine des logos cliquables -->
+    <div class="showcase" role="list">
+      
+      <!-- 01. Multi-Motors -->
+      <a class="logo-card" href="https://multi-motors.fr" target="_blank" rel="noopener" role="listitem" title="Multi-Motors : catalogue des moteurs brushless FPV">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/multi-motors.png" alt="Multi-Motors">
+        </div>
+        <h2 class="logo-name">Multi-Motors</h2>
+      </a>
 
-    <!-- Aucun résultat -->
-    <div id="no-results" class="no-results">
-      Aucun projet correspondant
+      <!-- 02. Les Tourangeaux -->
+      <a class="logo-card" href="https://lestourangeaux.fr" target="_blank" rel="noopener" role="listitem" title="Les Tourangeaux : site officiel et communauté">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/lestourangeaux.svg" alt="Les Tourangeaux">
+        </div>
+        <h2 class="logo-name">Les Tourangeaux</h2>
+      </a>
+
+      <!-- 03. OpenBots -->
+      <a class="logo-card" href="https://openbots.fr" target="_blank" rel="noopener" role="listitem" title="OpenBots : hébergement managé de bots Discord">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/openbots.png" alt="OpenBots">
+        </div>
+        <h2 class="logo-name">OpenBots</h2>
+      </a>
+
+      <!-- 04. Inskin -->
+      <a class="logo-card" href="https://github.com/TakDai/Inskin" target="_blank" rel="noopener" role="listitem" title="Inskin : application Android NFC/RFID & implants">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/inskin.png" alt="Inskin">
+        </div>
+        <h2 class="logo-name">Inskin</h2>
+      </a>
+
+      <!-- 05. Komeon -->
+      <a class="logo-card" href="https://github.com/TakDai/Komeon" target="_blank" rel="noopener" role="listitem" title="Komeon : messagerie communautaire temps réel">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/komeon.png" alt="Komeon">
+        </div>
+        <h2 class="logo-name">Komeon</h2>
+      </a>
+
+      <!-- 06. Superviseur -->
+      <a class="logo-card" href="https://github.com/TakDai/Superviseur" target="_blank" rel="noopener" role="listitem" title="Superviseur : monitoring et supervision SSH">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/superviseur.svg" alt="Superviseur">
+        </div>
+        <h2 class="logo-name">Superviseur</h2>
+      </a>
+
+      <!-- 07. Tours2Tours -->
+      <a class="logo-card" href="https://github.com/TakDai/Tours2Tours" target="_blank" rel="noopener" role="listitem" title="Tours2Tours : bot Discord communautaire et panel web">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/tours2tours.png" alt="Tours2Tours">
+        </div>
+        <h2 class="logo-name">Tours2Tours</h2>
+      </a>
+
+      <!-- 08. Fix-My-Drone -->
+      <a class="logo-card" href="https://tom-bigot.fr" target="_blank" rel="noopener" role="listitem" title="Fix-My-Drone : base de connaissances et diagnostic FPV">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/fix-my-drone.svg" alt="Fix-My-Drone">
+        </div>
+        <h2 class="logo-name">Fix-My-Drone</h2>
+      </a>
+
+      <!-- 09. Mazda-3 -->
+      <a class="logo-card" href="https://github.com/TakDai/Mazda-3" target="_blank" rel="noopener" role="listitem" title="Mazda-3 : modélisation 3D surfacique">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/mazda-3.svg" alt="Mazda-3">
+        </div>
+        <h2 class="logo-name">Mazda-3</h2>
+      </a>
+
+      <!-- 10. 127IL -->
+      <a class="logo-card" href="https://pensées-nocturnes.fr" target="_blank" rel="noopener" role="listitem" title="127IL & Pensées Nocturnes : streaming et créations">
+        <span class="logo-ext">↗</span>
+        <div class="logo-img">
+          <img src="assets/logos/127il.svg" alt="127IL">
+        </div>
+        <h2 class="logo-name">127IL</h2>
+      </a>
+
     </div>
 
   </main>
 
   <!-- ================= PIED DE PAGE ================= -->
-  <footer class="footer">
+  <footer class="foot">
     <span>SEEWORLD &bull; Regarder le monde</span>
     <span>&copy; 2026 Tom Bigot</span>
     <a href="https://tom-bigot.fr" target="_blank" rel="noopener">tom-bigot.fr ↗</a>
   </footer>
 
-  <!-- ================= TIROIR / MODALE MINIMALISTE ================= -->
-  <div id="project-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-card">
-      <button id="modal-close-btn" class="modal-close" aria-label="Fermer">✕</button>
-      
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <div class="modal-head-logo">
-          <img id="modal-logo" src="" alt="">
-        </div>
-        <div>
-          <h3 id="modal-title" style="margin: 0; font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase;"></h3>
-          <span id="modal-tag" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted);"></span>
-        </div>
-      </div>
-
-      <p id="modal-desc" style="color: var(--ink-soft); font-size: 14px; line-height: 1.6;"></p>
-
-      <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
-        <a id="modal-link" href="#" target="_blank" rel="noopener" class="btn">
-          <span>OUVRIR LE PROJET</span>
-          <span style="font-size: 13px;">↗</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
 </body>
 </html>
