@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SEEWORLD — Regarder le monde
+   SEEWORLD — Showcase
    Minimalisme direct inspiré de multi-motors.fr
    Noir sur blanc, typographie Glacial Indifference, pointillés 2 px signatures
    et vitrine directe des projets par leurs logos cliquables.
@@ -127,7 +127,7 @@ a {
   justify-content: center;
   padding: clamp(24px, 5vh, 60px) 20px;
   width: 100%;
-  max-width: 1060px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
@@ -135,33 +135,24 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
   text-align: center;
-  margin-bottom: clamp(32px, 6vh, 64px);
+  margin-bottom: clamp(28px, 5vh, 48px);
 }
 
 .big-title {
   margin: 0;
-  font: 700 clamp(38px, min(6.5vw, 9vh), 72px)/1.08 var(--font);
+  font: 700 clamp(40px, min(8vw, 10vh), 76px)/1.08 var(--font);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
-}
-
-.devise {
-  margin: 0;
-  font: italic 400 clamp(13px, 2vw, 16px) var(--font);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.55);
 }
 
 /* ---------- VITRINE DES LOGOS CLIQUABLES ---------- */
 .showcase {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: clamp(14px, 2vw, 24px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 22px);
 }
 
 .logo-card {
@@ -258,17 +249,14 @@ a {
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  .showcase {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 580px) {
+@media (max-width: 680px) {
   .showcase {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+}
+
+@media (max-width: 480px) {
   .logo-card {
     min-height: 136px;
     padding: 18px 10px 14px;
